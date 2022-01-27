@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="card-header" style="background-color: #cfe3f1;">
+        <h5>Users</h5>
+    </div>
+    <div class="card">
+
+        <table class="table table-responsive table-sm table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let data of user">
+                    <td>{{ data.id }}</td>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.email }}</td>
+                    <td>
+                        <button (click)="cargar_user(data)" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#modal_details">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<!-- Modal for details -->
+
+<div class="modal fade" id="modal_details" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-info">
+          <h5 class="modal-title text-white" id="exampleModalLabel">User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <div class="row">
+                <div class="col">
+                    <label for="">Id</label>
+                     <input *ngIf="cargar" [(ngModel)]= cargar.id type="text" class="form-control form-control-sm" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Name</label>
+                     <input *ngIf="cargar" [(ngModel)]= cargar.name type="text" class="form-control form-control-sm" readonly>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Email</label>
+                     <input *ngIf="cargar" [(ngModel)]= cargar.email type="text" class="form-control form-control-sm" readonly>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+    </div>
+  </div>
